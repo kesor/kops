@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "bucket.go",
+        "cache.go",
+        "configuration.go",
+        "item.go",
+        "layeredbucket.go",
+        "layeredcache.go",
+        "secondarycache.go",
+    ],
+    importmap = "k8s.io/kops/vendor/github.com/karlseguin/ccache",
+    importpath = "github.com/karlseguin/ccache",
+    visibility = ["//visibility:public"],
+)

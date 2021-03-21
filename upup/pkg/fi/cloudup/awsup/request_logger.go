@@ -18,6 +18,7 @@ package awsup
 
 import (
 	"github.com/aws/aws-sdk-go/aws/request"
+	"github.com/ticketmaster/aws-sdk-go-cache/cache"
 	"k8s.io/klog/v2"
 )
 
@@ -42,5 +43,10 @@ func (l *RequestLogger) log(r *request.Request) {
 	}
 	methodDescription := service + "/" + name
 
-	klog.V(l.logLevel).Infof("AWS request: %s", methodDescription)
+	ctx := r.HTTPRequest.Context()
+    if (cache.IsCacheHit(ctx)) {
+        klog.V(l.logLevel).Infof("AWS request: %s [cached]", methodDescription)
+    } else {
+        klog.V(l.logLevel).Infof("AWS request: %s", methodDescription)
+    }
 }

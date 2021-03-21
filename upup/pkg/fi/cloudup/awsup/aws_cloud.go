@@ -56,6 +56,8 @@ import (
 	"k8s.io/kops/pkg/resources/spotinst"
 	"k8s.io/kops/upup/pkg/fi"
 	k8s_aws "k8s.io/legacy-cloud-providers/aws"
+
+	"github.com/ticketmaster/aws-sdk-go-cache/cache"
 )
 
 // By default, aws-sdk-go only retries 3 times, which doesn't give
@@ -243,10 +245,14 @@ func NewAWSCloud(region string, tags map[string]string) (AWSCloud, error) {
 
 		requestLogger := newRequestLogger(2)
 
+		// cache AWS API request results
+		cacheCfg := cache.NewConfig(300 * time.Second)
+
 		sess, err := session.NewSession(config)
 		if err != nil {
 			return c, err
 		}
+		cache.AddCaching(sess, cacheCfg)
 		c.cf = cloudformation.New(sess, config)
 		c.cf.Handlers.Send.PushFront(requestLogger)
 		c.addHandlers(region, &c.cf.Handlers)
@@ -255,6 +261,7 @@ func NewAWSCloud(region string, tags map[string]string) (AWSCloud, error) {
 		if err != nil {
 			return c, err
 		}
+		cache.AddCaching(sess, cacheCfg)
 		c.ec2 = ec2.New(sess, config)
 		c.ec2.Handlers.Send.PushFront(requestLogger)
 		c.addHandlers(region, &c.ec2.Handlers)
@@ -263,6 +270,7 @@ func NewAWSCloud(region string, tags map[string]string) (AWSCloud, error) {
 		if err != nil {
 			return c, err
 		}
+		cache.AddCaching(sess, cacheCfg)
 		c.iam = iam.New(sess, config)
 		c.iam.Handlers.Send.PushFront(requestLogger)
 		c.addHandlers(region, &c.iam.Handlers)
@@ -271,6 +279,7 @@ func NewAWSCloud(region string, tags map[string]string) (AWSCloud, error) {
 		if err != nil {
 			return c, err
 		}
+		cache.AddCaching(sess, cacheCfg)
 		c.elb = elb.New(sess, config)
 		c.elb.Handlers.Send.PushFront(requestLogger)
 		c.addHandlers(region, &c.elb.Handlers)
@@ -279,6 +288,7 @@ func NewAWSCloud(region string, tags map[string]string) (AWSCloud, error) {
 		if err != nil {
 			return c, err
 		}
+		cache.AddCaching(sess, cacheCfg)
 		c.elbv2 = elbv2.New(sess, config)
 		c.elbv2.Handlers.Send.PushFront(requestLogger)
 		c.addHandlers(region, &c.elbv2.Handlers)
@@ -287,6 +297,7 @@ func NewAWSCloud(region string, tags map[string]string) (AWSCloud, error) {
 		if err != nil {
 			return c, err
 		}
+		cache.AddCaching(sess, cacheCfg)
 		c.sts = sts.New(sess, config)
 		c.sts.Handlers.Send.PushFront(requestLogger)
 		c.addHandlers(region, &c.sts.Handlers)
@@ -295,6 +306,7 @@ func NewAWSCloud(region string, tags map[string]string) (AWSCloud, error) {
 		if err != nil {
 			return c, err
 		}
+		cache.AddCaching(sess, cacheCfg)
 		c.autoscaling = autoscaling.New(sess, config)
 		c.autoscaling.Handlers.Send.PushFront(requestLogger)
 		c.addHandlers(region, &c.autoscaling.Handlers)
@@ -303,6 +315,7 @@ func NewAWSCloud(region string, tags map[string]string) (AWSCloud, error) {
 		if err != nil {
 			return c, err
 		}
+		cache.AddCaching(sess, cacheCfg)
 		c.route53 = route53.New(sess, config)
 		c.route53.Handlers.Send.PushFront(requestLogger)
 		c.addHandlers(region, &c.route53.Handlers)

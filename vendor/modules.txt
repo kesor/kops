@@ -151,6 +151,7 @@ github.com/aws/aws-sdk-go/service/elbv2/elbv2iface
 github.com/aws/aws-sdk-go/service/iam
 github.com/aws/aws-sdk-go/service/iam/iamiface
 github.com/aws/aws-sdk-go/service/kms
+github.com/aws/aws-sdk-go/service/resourcegroupstaggingapi
 github.com/aws/aws-sdk-go/service/route53
 github.com/aws/aws-sdk-go/service/route53/route53iface
 github.com/aws/aws-sdk-go/service/s3
@@ -265,6 +266,8 @@ github.com/gogo/protobuf/gogoproto
 github.com/gogo/protobuf/proto
 github.com/gogo/protobuf/protoc-gen-gogo/descriptor
 github.com/gogo/protobuf/sortkeys
+# github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+github.com/golang/glog
 # github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e
 github.com/golang/groupcache/lru
 # github.com/golang/protobuf v1.4.3
@@ -440,6 +443,8 @@ github.com/jetstack/cert-manager/pkg/client/clientset/versioned/typed/certmanage
 github.com/jmespath/go-jmespath
 # github.com/json-iterator/go v1.1.10
 github.com/json-iterator/go
+# github.com/karlseguin/ccache v2.0.2+incompatible
+github.com/karlseguin/ccache
 # github.com/kisielk/errcheck v1.2.0
 github.com/kisielk/errcheck
 github.com/kisielk/errcheck/internal/errcheck
@@ -571,6 +576,9 @@ github.com/stretchr/testify/assert
 github.com/stretchr/testify/require
 # github.com/subosito/gotenv v1.2.0
 github.com/subosito/gotenv
+# github.com/ticketmaster/aws-sdk-go-cache v0.0.0-20200114210642-9a510f7c39db
+## explicit
+github.com/ticketmaster/aws-sdk-go-cache/cache
 # github.com/weaveworks/mesh v0.0.0-20170419100114-1f158d31de55
 ## explicit
 github.com/weaveworks/mesh
@@ -813,6 +821,8 @@ gopkg.in/gcfg.v1/types
 gopkg.in/inf.v0
 # gopkg.in/ini.v1 v1.57.0
 gopkg.in/ini.v1
+# gopkg.in/karlseguin/expect.v1 v1.0.1
+## explicit
 # gopkg.in/square/go-jose.v2 v2.3.1
 gopkg.in/square/go-jose.v2
 gopkg.in/square/go-jose.v2/cipher

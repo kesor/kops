@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "cache_collector.go",
+        "config.go",
+        "session.go",
+    ],
+    importmap = "k8s.io/kops/vendor/github.com/ticketmaster/aws-sdk-go-cache/cache",
+    importpath = "github.com/ticketmaster/aws-sdk-go-cache/cache",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/aws/aws-sdk-go/aws/awsutil:go_default_library",
+        "//vendor/github.com/aws/aws-sdk-go/aws/request:go_default_library",
+        "//vendor/github.com/aws/aws-sdk-go/aws/session:go_default_library",
+        "//vendor/github.com/aws/aws-sdk-go/service/resourcegroupstaggingapi:go_default_library",
+        "//vendor/github.com/golang/glog:go_default_library",
+        "//vendor/github.com/karlseguin/ccache:go_default_library",
+        "//vendor/github.com/prometheus/client_golang/prometheus:go_default_library",
+    ],
+)
