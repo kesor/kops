@@ -70,6 +70,7 @@ require (
 	github.com/spf13/viper v1.7.0
 	github.com/spotinst/spotinst-sdk-go v1.80.0
 	github.com/stretchr/testify v1.7.0
+	github.com/ticketmaster/aws-sdk-go-cache v0.0.0-20200114210642-9a510f7c39db
 	github.com/weaveworks/mesh v0.0.0-20170419100114-1f158d31de55
 	github.com/zclconf/go-cty v1.3.1
 	golang.org/x/crypto v0.0.0-20201208171446-5f87f3452ae9
@@ -81,6 +82,7 @@ require (
 	google.golang.org/api v0.22.0
 	gopkg.in/gcfg.v1 v1.2.3
 	gopkg.in/inf.v0 v0.9.1
+	gopkg.in/karlseguin/expect.v1 v1.0.1 // indirect
 	helm.sh/helm/v3 v3.4.2
 	honnef.co/go/tools v0.0.1-2020.1.6 // indirect
 	k8s.io/api v0.20.4
