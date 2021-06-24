@@ -144,6 +144,10 @@ type EC2API interface {
 	AssociateTransitGatewayRouteTableWithContext(aws.Context, *ec2.AssociateTransitGatewayRouteTableInput, ...request.Option) (*ec2.AssociateTransitGatewayRouteTableOutput, error)
 	AssociateTransitGatewayRouteTableRequest(*ec2.AssociateTransitGatewayRouteTableInput) (*request.Request, *ec2.AssociateTransitGatewayRouteTableOutput)
 
+	AssociateTrunkInterface(*ec2.AssociateTrunkInterfaceInput) (*ec2.AssociateTrunkInterfaceOutput, error)
+	AssociateTrunkInterfaceWithContext(aws.Context, *ec2.AssociateTrunkInterfaceInput, ...request.Option) (*ec2.AssociateTrunkInterfaceOutput, error)
+	AssociateTrunkInterfaceRequest(*ec2.AssociateTrunkInterfaceInput) (*request.Request, *ec2.AssociateTrunkInterfaceOutput)
+
 	AssociateVpcCidrBlock(*ec2.AssociateVpcCidrBlockInput) (*ec2.AssociateVpcCidrBlockOutput, error)
 	AssociateVpcCidrBlockWithContext(aws.Context, *ec2.AssociateVpcCidrBlockInput, ...request.Option) (*ec2.AssociateVpcCidrBlockOutput, error)
 	AssociateVpcCidrBlockRequest(*ec2.AssociateVpcCidrBlockInput) (*request.Request, *ec2.AssociateVpcCidrBlockOutput)
@@ -344,9 +348,17 @@ type EC2API interface {
 	CreatePlacementGroupWithContext(aws.Context, *ec2.CreatePlacementGroupInput, ...request.Option) (*ec2.CreatePlacementGroupOutput, error)
 	CreatePlacementGroupRequest(*ec2.CreatePlacementGroupInput) (*request.Request, *ec2.CreatePlacementGroupOutput)
 
+	CreateReplaceRootVolumeTask(*ec2.CreateReplaceRootVolumeTaskInput) (*ec2.CreateReplaceRootVolumeTaskOutput, error)
+	CreateReplaceRootVolumeTaskWithContext(aws.Context, *ec2.CreateReplaceRootVolumeTaskInput, ...request.Option) (*ec2.CreateReplaceRootVolumeTaskOutput, error)
+	CreateReplaceRootVolumeTaskRequest(*ec2.CreateReplaceRootVolumeTaskInput) (*request.Request, *ec2.CreateReplaceRootVolumeTaskOutput)
+
 	CreateReservedInstancesListing(*ec2.CreateReservedInstancesListingInput) (*ec2.CreateReservedInstancesListingOutput, error)
 	CreateReservedInstancesListingWithContext(aws.Context, *ec2.CreateReservedInstancesListingInput, ...request.Option) (*ec2.CreateReservedInstancesListingOutput, error)
 	CreateReservedInstancesListingRequest(*ec2.CreateReservedInstancesListingInput) (*request.Request, *ec2.CreateReservedInstancesListingOutput)
+
+	CreateRestoreImageTask(*ec2.CreateRestoreImageTaskInput) (*ec2.CreateRestoreImageTaskOutput, error)
+	CreateRestoreImageTaskWithContext(aws.Context, *ec2.CreateRestoreImageTaskInput, ...request.Option) (*ec2.CreateRestoreImageTaskOutput, error)
+	CreateRestoreImageTaskRequest(*ec2.CreateRestoreImageTaskInput) (*request.Request, *ec2.CreateRestoreImageTaskOutput)
 
 	CreateRoute(*ec2.CreateRouteInput) (*ec2.CreateRouteOutput, error)
 	CreateRouteWithContext(aws.Context, *ec2.CreateRouteInput, ...request.Option) (*ec2.CreateRouteOutput, error)
@@ -371,6 +383,10 @@ type EC2API interface {
 	CreateSpotDatafeedSubscription(*ec2.CreateSpotDatafeedSubscriptionInput) (*ec2.CreateSpotDatafeedSubscriptionOutput, error)
 	CreateSpotDatafeedSubscriptionWithContext(aws.Context, *ec2.CreateSpotDatafeedSubscriptionInput, ...request.Option) (*ec2.CreateSpotDatafeedSubscriptionOutput, error)
 	CreateSpotDatafeedSubscriptionRequest(*ec2.CreateSpotDatafeedSubscriptionInput) (*request.Request, *ec2.CreateSpotDatafeedSubscriptionOutput)
+
+	CreateStoreImageTask(*ec2.CreateStoreImageTaskInput) (*ec2.CreateStoreImageTaskOutput, error)
+	CreateStoreImageTaskWithContext(aws.Context, *ec2.CreateStoreImageTaskInput, ...request.Option) (*ec2.CreateStoreImageTaskOutput, error)
+	CreateStoreImageTaskRequest(*ec2.CreateStoreImageTaskInput) (*request.Request, *ec2.CreateStoreImageTaskOutput)
 
 	CreateSubnet(*ec2.CreateSubnetInput) (*ec2.CreateSubnetOutput, error)
 	CreateSubnetWithContext(aws.Context, *ec2.CreateSubnetInput, ...request.Option) (*ec2.CreateSubnetOutput, error)
@@ -711,6 +727,13 @@ type EC2API interface {
 	DescribeAddresses(*ec2.DescribeAddressesInput) (*ec2.DescribeAddressesOutput, error)
 	DescribeAddressesWithContext(aws.Context, *ec2.DescribeAddressesInput, ...request.Option) (*ec2.DescribeAddressesOutput, error)
 	DescribeAddressesRequest(*ec2.DescribeAddressesInput) (*request.Request, *ec2.DescribeAddressesOutput)
+
+	DescribeAddressesAttribute(*ec2.DescribeAddressesAttributeInput) (*ec2.DescribeAddressesAttributeOutput, error)
+	DescribeAddressesAttributeWithContext(aws.Context, *ec2.DescribeAddressesAttributeInput, ...request.Option) (*ec2.DescribeAddressesAttributeOutput, error)
+	DescribeAddressesAttributeRequest(*ec2.DescribeAddressesAttributeInput) (*request.Request, *ec2.DescribeAddressesAttributeOutput)
+
+	DescribeAddressesAttributePages(*ec2.DescribeAddressesAttributeInput, func(*ec2.DescribeAddressesAttributeOutput, bool) bool) error
+	DescribeAddressesAttributePagesWithContext(aws.Context, *ec2.DescribeAddressesAttributeInput, func(*ec2.DescribeAddressesAttributeOutput, bool) bool, ...request.Option) error
 
 	DescribeAggregateIdFormat(*ec2.DescribeAggregateIdFormatInput) (*ec2.DescribeAggregateIdFormatOutput, error)
 	DescribeAggregateIdFormatWithContext(aws.Context, *ec2.DescribeAggregateIdFormatInput, ...request.Option) (*ec2.DescribeAggregateIdFormatOutput, error)
@@ -1135,6 +1158,13 @@ type EC2API interface {
 	DescribeRegionsWithContext(aws.Context, *ec2.DescribeRegionsInput, ...request.Option) (*ec2.DescribeRegionsOutput, error)
 	DescribeRegionsRequest(*ec2.DescribeRegionsInput) (*request.Request, *ec2.DescribeRegionsOutput)
 
+	DescribeReplaceRootVolumeTasks(*ec2.DescribeReplaceRootVolumeTasksInput) (*ec2.DescribeReplaceRootVolumeTasksOutput, error)
+	DescribeReplaceRootVolumeTasksWithContext(aws.Context, *ec2.DescribeReplaceRootVolumeTasksInput, ...request.Option) (*ec2.DescribeReplaceRootVolumeTasksOutput, error)
+	DescribeReplaceRootVolumeTasksRequest(*ec2.DescribeReplaceRootVolumeTasksInput) (*request.Request, *ec2.DescribeReplaceRootVolumeTasksOutput)
+
+	DescribeReplaceRootVolumeTasksPages(*ec2.DescribeReplaceRootVolumeTasksInput, func(*ec2.DescribeReplaceRootVolumeTasksOutput, bool) bool) error
+	DescribeReplaceRootVolumeTasksPagesWithContext(aws.Context, *ec2.DescribeReplaceRootVolumeTasksInput, func(*ec2.DescribeReplaceRootVolumeTasksOutput, bool) bool, ...request.Option) error
+
 	DescribeReservedInstances(*ec2.DescribeReservedInstancesInput) (*ec2.DescribeReservedInstancesOutput, error)
 	DescribeReservedInstancesWithContext(aws.Context, *ec2.DescribeReservedInstancesInput, ...request.Option) (*ec2.DescribeReservedInstancesOutput, error)
 	DescribeReservedInstancesRequest(*ec2.DescribeReservedInstancesInput) (*request.Request, *ec2.DescribeReservedInstancesOutput)
@@ -1240,6 +1270,13 @@ type EC2API interface {
 	DescribeStaleSecurityGroupsPages(*ec2.DescribeStaleSecurityGroupsInput, func(*ec2.DescribeStaleSecurityGroupsOutput, bool) bool) error
 	DescribeStaleSecurityGroupsPagesWithContext(aws.Context, *ec2.DescribeStaleSecurityGroupsInput, func(*ec2.DescribeStaleSecurityGroupsOutput, bool) bool, ...request.Option) error
 
+	DescribeStoreImageTasks(*ec2.DescribeStoreImageTasksInput) (*ec2.DescribeStoreImageTasksOutput, error)
+	DescribeStoreImageTasksWithContext(aws.Context, *ec2.DescribeStoreImageTasksInput, ...request.Option) (*ec2.DescribeStoreImageTasksOutput, error)
+	DescribeStoreImageTasksRequest(*ec2.DescribeStoreImageTasksInput) (*request.Request, *ec2.DescribeStoreImageTasksOutput)
+
+	DescribeStoreImageTasksPages(*ec2.DescribeStoreImageTasksInput, func(*ec2.DescribeStoreImageTasksOutput, bool) bool) error
+	DescribeStoreImageTasksPagesWithContext(aws.Context, *ec2.DescribeStoreImageTasksInput, func(*ec2.DescribeStoreImageTasksOutput, bool) bool, ...request.Option) error
+
 	DescribeSubnets(*ec2.DescribeSubnetsInput) (*ec2.DescribeSubnetsOutput, error)
 	DescribeSubnetsWithContext(aws.Context, *ec2.DescribeSubnetsInput, ...request.Option) (*ec2.DescribeSubnetsOutput, error)
 	DescribeSubnetsRequest(*ec2.DescribeSubnetsInput) (*request.Request, *ec2.DescribeSubnetsOutput)
@@ -1330,6 +1367,10 @@ type EC2API interface {
 
 	DescribeTransitGatewaysPages(*ec2.DescribeTransitGatewaysInput, func(*ec2.DescribeTransitGatewaysOutput, bool) bool) error
 	DescribeTransitGatewaysPagesWithContext(aws.Context, *ec2.DescribeTransitGatewaysInput, func(*ec2.DescribeTransitGatewaysOutput, bool) bool, ...request.Option) error
+
+	DescribeTrunkInterfaceAssociations(*ec2.DescribeTrunkInterfaceAssociationsInput) (*ec2.DescribeTrunkInterfaceAssociationsOutput, error)
+	DescribeTrunkInterfaceAssociationsWithContext(aws.Context, *ec2.DescribeTrunkInterfaceAssociationsInput, ...request.Option) (*ec2.DescribeTrunkInterfaceAssociationsOutput, error)
+	DescribeTrunkInterfaceAssociationsRequest(*ec2.DescribeTrunkInterfaceAssociationsInput) (*request.Request, *ec2.DescribeTrunkInterfaceAssociationsOutput)
 
 	DescribeVolumeAttribute(*ec2.DescribeVolumeAttributeInput) (*ec2.DescribeVolumeAttributeOutput, error)
 	DescribeVolumeAttributeWithContext(aws.Context, *ec2.DescribeVolumeAttributeInput, ...request.Option) (*ec2.DescribeVolumeAttributeOutput, error)
@@ -1460,6 +1501,14 @@ type EC2API interface {
 	DisableFastSnapshotRestoresWithContext(aws.Context, *ec2.DisableFastSnapshotRestoresInput, ...request.Option) (*ec2.DisableFastSnapshotRestoresOutput, error)
 	DisableFastSnapshotRestoresRequest(*ec2.DisableFastSnapshotRestoresInput) (*request.Request, *ec2.DisableFastSnapshotRestoresOutput)
 
+	DisableImageDeprecation(*ec2.DisableImageDeprecationInput) (*ec2.DisableImageDeprecationOutput, error)
+	DisableImageDeprecationWithContext(aws.Context, *ec2.DisableImageDeprecationInput, ...request.Option) (*ec2.DisableImageDeprecationOutput, error)
+	DisableImageDeprecationRequest(*ec2.DisableImageDeprecationInput) (*request.Request, *ec2.DisableImageDeprecationOutput)
+
+	DisableSerialConsoleAccess(*ec2.DisableSerialConsoleAccessInput) (*ec2.DisableSerialConsoleAccessOutput, error)
+	DisableSerialConsoleAccessWithContext(aws.Context, *ec2.DisableSerialConsoleAccessInput, ...request.Option) (*ec2.DisableSerialConsoleAccessOutput, error)
+	DisableSerialConsoleAccessRequest(*ec2.DisableSerialConsoleAccessInput) (*request.Request, *ec2.DisableSerialConsoleAccessOutput)
+
 	DisableTransitGatewayRouteTablePropagation(*ec2.DisableTransitGatewayRouteTablePropagationInput) (*ec2.DisableTransitGatewayRouteTablePropagationOutput, error)
 	DisableTransitGatewayRouteTablePropagationWithContext(aws.Context, *ec2.DisableTransitGatewayRouteTablePropagationInput, ...request.Option) (*ec2.DisableTransitGatewayRouteTablePropagationOutput, error)
 	DisableTransitGatewayRouteTablePropagationRequest(*ec2.DisableTransitGatewayRouteTablePropagationInput) (*request.Request, *ec2.DisableTransitGatewayRouteTablePropagationOutput)
@@ -1508,6 +1557,10 @@ type EC2API interface {
 	DisassociateTransitGatewayRouteTableWithContext(aws.Context, *ec2.DisassociateTransitGatewayRouteTableInput, ...request.Option) (*ec2.DisassociateTransitGatewayRouteTableOutput, error)
 	DisassociateTransitGatewayRouteTableRequest(*ec2.DisassociateTransitGatewayRouteTableInput) (*request.Request, *ec2.DisassociateTransitGatewayRouteTableOutput)
 
+	DisassociateTrunkInterface(*ec2.DisassociateTrunkInterfaceInput) (*ec2.DisassociateTrunkInterfaceOutput, error)
+	DisassociateTrunkInterfaceWithContext(aws.Context, *ec2.DisassociateTrunkInterfaceInput, ...request.Option) (*ec2.DisassociateTrunkInterfaceOutput, error)
+	DisassociateTrunkInterfaceRequest(*ec2.DisassociateTrunkInterfaceInput) (*request.Request, *ec2.DisassociateTrunkInterfaceOutput)
+
 	DisassociateVpcCidrBlock(*ec2.DisassociateVpcCidrBlockInput) (*ec2.DisassociateVpcCidrBlockOutput, error)
 	DisassociateVpcCidrBlockWithContext(aws.Context, *ec2.DisassociateVpcCidrBlockInput, ...request.Option) (*ec2.DisassociateVpcCidrBlockOutput, error)
 	DisassociateVpcCidrBlockRequest(*ec2.DisassociateVpcCidrBlockInput) (*request.Request, *ec2.DisassociateVpcCidrBlockOutput)
@@ -1519,6 +1572,14 @@ type EC2API interface {
 	EnableFastSnapshotRestores(*ec2.EnableFastSnapshotRestoresInput) (*ec2.EnableFastSnapshotRestoresOutput, error)
 	EnableFastSnapshotRestoresWithContext(aws.Context, *ec2.EnableFastSnapshotRestoresInput, ...request.Option) (*ec2.EnableFastSnapshotRestoresOutput, error)
 	EnableFastSnapshotRestoresRequest(*ec2.EnableFastSnapshotRestoresInput) (*request.Request, *ec2.EnableFastSnapshotRestoresOutput)
+
+	EnableImageDeprecation(*ec2.EnableImageDeprecationInput) (*ec2.EnableImageDeprecationOutput, error)
+	EnableImageDeprecationWithContext(aws.Context, *ec2.EnableImageDeprecationInput, ...request.Option) (*ec2.EnableImageDeprecationOutput, error)
+	EnableImageDeprecationRequest(*ec2.EnableImageDeprecationInput) (*request.Request, *ec2.EnableImageDeprecationOutput)
+
+	EnableSerialConsoleAccess(*ec2.EnableSerialConsoleAccessInput) (*ec2.EnableSerialConsoleAccessOutput, error)
+	EnableSerialConsoleAccessWithContext(aws.Context, *ec2.EnableSerialConsoleAccessInput, ...request.Option) (*ec2.EnableSerialConsoleAccessOutput, error)
+	EnableSerialConsoleAccessRequest(*ec2.EnableSerialConsoleAccessInput) (*request.Request, *ec2.EnableSerialConsoleAccessOutput)
 
 	EnableTransitGatewayRouteTablePropagation(*ec2.EnableTransitGatewayRouteTablePropagationInput) (*ec2.EnableTransitGatewayRouteTablePropagationOutput, error)
 	EnableTransitGatewayRouteTablePropagationWithContext(aws.Context, *ec2.EnableTransitGatewayRouteTablePropagationInput, ...request.Option) (*ec2.EnableTransitGatewayRouteTablePropagationOutput, error)
@@ -1595,6 +1656,10 @@ type EC2API interface {
 	GetEbsEncryptionByDefaultWithContext(aws.Context, *ec2.GetEbsEncryptionByDefaultInput, ...request.Option) (*ec2.GetEbsEncryptionByDefaultOutput, error)
 	GetEbsEncryptionByDefaultRequest(*ec2.GetEbsEncryptionByDefaultInput) (*request.Request, *ec2.GetEbsEncryptionByDefaultOutput)
 
+	GetFlowLogsIntegrationTemplate(*ec2.GetFlowLogsIntegrationTemplateInput) (*ec2.GetFlowLogsIntegrationTemplateOutput, error)
+	GetFlowLogsIntegrationTemplateWithContext(aws.Context, *ec2.GetFlowLogsIntegrationTemplateInput, ...request.Option) (*ec2.GetFlowLogsIntegrationTemplateOutput, error)
+	GetFlowLogsIntegrationTemplateRequest(*ec2.GetFlowLogsIntegrationTemplateInput) (*request.Request, *ec2.GetFlowLogsIntegrationTemplateOutput)
+
 	GetGroupsForCapacityReservation(*ec2.GetGroupsForCapacityReservationInput) (*ec2.GetGroupsForCapacityReservationOutput, error)
 	GetGroupsForCapacityReservationWithContext(aws.Context, *ec2.GetGroupsForCapacityReservationInput, ...request.Option) (*ec2.GetGroupsForCapacityReservationOutput, error)
 	GetGroupsForCapacityReservationRequest(*ec2.GetGroupsForCapacityReservationInput) (*request.Request, *ec2.GetGroupsForCapacityReservationOutput)
@@ -1631,6 +1696,10 @@ type EC2API interface {
 	GetReservedInstancesExchangeQuote(*ec2.GetReservedInstancesExchangeQuoteInput) (*ec2.GetReservedInstancesExchangeQuoteOutput, error)
 	GetReservedInstancesExchangeQuoteWithContext(aws.Context, *ec2.GetReservedInstancesExchangeQuoteInput, ...request.Option) (*ec2.GetReservedInstancesExchangeQuoteOutput, error)
 	GetReservedInstancesExchangeQuoteRequest(*ec2.GetReservedInstancesExchangeQuoteInput) (*request.Request, *ec2.GetReservedInstancesExchangeQuoteOutput)
+
+	GetSerialConsoleAccessStatus(*ec2.GetSerialConsoleAccessStatusInput) (*ec2.GetSerialConsoleAccessStatusOutput, error)
+	GetSerialConsoleAccessStatusWithContext(aws.Context, *ec2.GetSerialConsoleAccessStatusInput, ...request.Option) (*ec2.GetSerialConsoleAccessStatusOutput, error)
+	GetSerialConsoleAccessStatusRequest(*ec2.GetSerialConsoleAccessStatusInput) (*request.Request, *ec2.GetSerialConsoleAccessStatusOutput)
 
 	GetTransitGatewayAttachmentPropagations(*ec2.GetTransitGatewayAttachmentPropagationsInput) (*ec2.GetTransitGatewayAttachmentPropagationsOutput, error)
 	GetTransitGatewayAttachmentPropagationsWithContext(aws.Context, *ec2.GetTransitGatewayAttachmentPropagationsInput, ...request.Option) (*ec2.GetTransitGatewayAttachmentPropagationsOutput, error)
@@ -1690,6 +1759,10 @@ type EC2API interface {
 	ImportVolume(*ec2.ImportVolumeInput) (*ec2.ImportVolumeOutput, error)
 	ImportVolumeWithContext(aws.Context, *ec2.ImportVolumeInput, ...request.Option) (*ec2.ImportVolumeOutput, error)
 	ImportVolumeRequest(*ec2.ImportVolumeInput) (*request.Request, *ec2.ImportVolumeOutput)
+
+	ModifyAddressAttribute(*ec2.ModifyAddressAttributeInput) (*ec2.ModifyAddressAttributeOutput, error)
+	ModifyAddressAttributeWithContext(aws.Context, *ec2.ModifyAddressAttributeInput, ...request.Option) (*ec2.ModifyAddressAttributeOutput, error)
+	ModifyAddressAttributeRequest(*ec2.ModifyAddressAttributeInput) (*request.Request, *ec2.ModifyAddressAttributeOutput)
 
 	ModifyAvailabilityZoneGroup(*ec2.ModifyAvailabilityZoneGroupInput) (*ec2.ModifyAvailabilityZoneGroupOutput, error)
 	ModifyAvailabilityZoneGroupWithContext(aws.Context, *ec2.ModifyAvailabilityZoneGroupInput, ...request.Option) (*ec2.ModifyAvailabilityZoneGroupOutput, error)
@@ -1970,6 +2043,10 @@ type EC2API interface {
 	RequestSpotInstances(*ec2.RequestSpotInstancesInput) (*ec2.RequestSpotInstancesOutput, error)
 	RequestSpotInstancesWithContext(aws.Context, *ec2.RequestSpotInstancesInput, ...request.Option) (*ec2.RequestSpotInstancesOutput, error)
 	RequestSpotInstancesRequest(*ec2.RequestSpotInstancesInput) (*request.Request, *ec2.RequestSpotInstancesOutput)
+
+	ResetAddressAttribute(*ec2.ResetAddressAttributeInput) (*ec2.ResetAddressAttributeOutput, error)
+	ResetAddressAttributeWithContext(aws.Context, *ec2.ResetAddressAttributeInput, ...request.Option) (*ec2.ResetAddressAttributeOutput, error)
+	ResetAddressAttributeRequest(*ec2.ResetAddressAttributeInput) (*request.Request, *ec2.ResetAddressAttributeOutput)
 
 	ResetEbsDefaultKmsKeyId(*ec2.ResetEbsDefaultKmsKeyIdInput) (*ec2.ResetEbsDefaultKmsKeyIdOutput, error)
 	ResetEbsDefaultKmsKeyIdWithContext(aws.Context, *ec2.ResetEbsDefaultKmsKeyIdInput, ...request.Option) (*ec2.ResetEbsDefaultKmsKeyIdOutput, error)
