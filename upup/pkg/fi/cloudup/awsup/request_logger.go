@@ -44,9 +44,9 @@ func (l *RequestLogger) log(r *request.Request) {
 	methodDescription := service + "/" + name
 
 	ctx := r.HTTPRequest.Context()
-    if (cache.IsCacheHit(ctx)) {
-        klog.V(l.logLevel).Infof("AWS request: %s [cached]", methodDescription)
-    } else {
-        klog.V(l.logLevel).Infof("AWS request: %s", methodDescription)
-    }
+	if cache.IsCacheHit(ctx) {
+		klog.V(l.logLevel).Infof("AWS request: %s [cached]", methodDescription)
+	} else {
+		klog.V(l.logLevel).Infof("AWS request: %s", methodDescription)
+	}
 }
